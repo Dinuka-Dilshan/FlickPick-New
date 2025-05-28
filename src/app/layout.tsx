@@ -1,4 +1,4 @@
-import AppBar from "@/components/appbar";
+import AppBar from "@/components/appbar/app-bar";
 import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
