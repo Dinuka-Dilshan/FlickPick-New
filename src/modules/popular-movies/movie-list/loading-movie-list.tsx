@@ -1,4 +1,4 @@
-import LoadingMovieCard from "@/components/MovieCard/LoadingMovieCard";
+import LoadingMovieCard from "@/modules/popular-movies/movie-card/loading-movie-card";
 
 type Props = {
   title: string;

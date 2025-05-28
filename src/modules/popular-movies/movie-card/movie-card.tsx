@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   imdbId: string;
@@ -18,6 +19,7 @@ type Props = {
   };
   changeDirection: "UP" | "DOWN" | "FLAT";
   difference: number;
+  type: "Movie" | "TV";
 };
 
 const MovieCard = async ({
@@ -28,9 +30,11 @@ const MovieCard = async ({
   rating,
   changeDirection,
   difference,
+  imdbId,
+  type,
 }: Props) => {
   return (
-    <div>
+    <Link href={`/${type === "Movie" ? "movies" : "tvs"}/${imdbId}`}>
       <Card className="border-0 overflow-hidden relative">
         <CardContent className="overflow-hidden ">
           {posterUrl ? (
@@ -96,7 +100,7 @@ const MovieCard = async ({
           <p className="text-[#B3B3B3] font-medium text-xs">{releaseYear} </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
