@@ -10,7 +10,7 @@ const appFont = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   title: "FlickPick",
-  description: "",
+  description: "Pick your next movie or TV show to watch",
 };
 
 export default function RootLayout({
