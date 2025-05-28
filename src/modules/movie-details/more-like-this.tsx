@@ -2,8 +2,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { getMovieDetails } from "@/lib/scrape/getMovieDetails";
 import Image from "next/image";
