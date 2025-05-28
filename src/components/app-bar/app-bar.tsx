@@ -1,5 +1,5 @@
-import Logo from "@/components/appbar/logo";
-import NavLink from "@/components/appbar/navlink";
+import Logo from "@/components/app-bar/logo";
+import NavLink from "@/components/app-bar/nav-link";
 
 const NAV_ROUTES = [
   { href: "/movies", label: "Top Movies" },
