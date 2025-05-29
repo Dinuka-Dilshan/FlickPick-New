@@ -4,6 +4,8 @@ import HeroSection from "@/modules/movie-details/hero-section";
 import MoreLikeThis from "@/modules/movie-details/more-like-this";
 import Trailer from "@/modules/movie-details/trailer";
 
+export const revalidate = 3600;
+
 const Movie = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
