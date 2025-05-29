@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${appFont.variable} antialiased`}>
         <AppBar />
-        {children}
+        <div className="container mx-auto"> {children}</div>
       </body>
     </html>
   );

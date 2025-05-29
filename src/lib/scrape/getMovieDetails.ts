@@ -55,6 +55,9 @@ type AboveTheFoldData = {
         playbackURLs?: Array<{
           url: string;
         }>;
+        thumbnail?: {
+          url: string;
+        };
       };
     }>;
   };
@@ -172,13 +175,12 @@ export const getMovieDetails = cache(async (id: string) => {
   }
 
   const nextDataScriptParsed = JSON.parse(nextDataScript);
-  console.log(nextDataScriptParsed);
 
   const aboveTheFoldData = nextDataScriptParsed?.props?.pageProps
     ?.aboveTheFoldData as AboveTheFoldData;
   const mainColumnData = nextDataScriptParsed?.props?.pageProps
     ?.mainColumnData as MainColumnData;
-
+  console.log(aboveTheFoldData);
   return {
     title: aboveTheFoldData?.titleText?.text,
     ratings: aboveTheFoldData?.ratingsSummary?.aggregateRating,
@@ -188,9 +190,10 @@ export const getMovieDetails = cache(async (id: string) => {
     runtime: aboveTheFoldData?.runtime?.displayableProperty?.value?.plainText,
     runtimeSeconds: aboveTheFoldData?.runtime?.seconds,
     posterUrl: aboveTheFoldData?.primaryImage?.url,
-    videoUrls: aboveTheFoldData?.primaryVideos?.edges?.map(
-      (edge) => edge?.node?.playbackURLs?.[0]?.url
-    ),
+    videoUrls: aboveTheFoldData?.primaryVideos?.edges?.map((edge) => ({
+      url: edge?.node?.playbackURLs?.[0]?.url,
+      thumbnail: edge?.node?.thumbnail?.url || "",
+    })),
     genres: aboveTheFoldData?.genres?.genres?.map((genre) => genre?.text),
     plot: aboveTheFoldData?.plot?.plotText?.plainText,
     imdbId: id,

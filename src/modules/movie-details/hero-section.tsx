@@ -12,7 +12,7 @@ const HeroSection = async ({ id }: { id: string }) => {
     await getMovieDetails(id);
 
   return (
-    <div className="flex max-w-6xl flex-col lg:flex-row  gap-4 lg:gap-8 ">
+    <div className="flex flex-col lg:flex-row  gap-4 lg:gap-8 ">
       <div className="flex flex-col lg:hidden">
         <TitleData id={id} variant="mobile" />
       </div>
