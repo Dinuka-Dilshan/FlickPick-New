@@ -8,11 +8,20 @@ import { Check, Scroll, Star, TrendingDown, TrendingUp } from "lucide-react";
 import Image from "next/image";
 
 const HeroSection = async ({ id }: { id: string }) => {
-  const { title, posterUrl, plot, genres, meterRanking, ratings, voteCount } =
-    await getMovieDetails(id);
+  const {
+    title,
+    posterUrl,
+    plot,
+    genres,
+    meterRanking,
+    ratings,
+    voteCount,
+    seasons,
+    episodes,
+  } = await getMovieDetails(id);
 
   return (
-    <div className="flex flex-col lg:flex-row  gap-4 lg:gap-8 ">
+    <section className="flex flex-col lg:flex-row  gap-4 lg:gap-8 ">
       <div className="flex flex-col lg:hidden">
         <TitleData id={id} variant="mobile" />
       </div>
@@ -29,7 +38,7 @@ const HeroSection = async ({ id }: { id: string }) => {
       ) : null}
       <div className="flex flex-col gap-4">
         <TitleData id={id} variant={"desktop"} className="hidden lg:block" />
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 ">
           <StatCard
             title={`#${meterRanking.currentRank}`}
             subtitle={
@@ -66,14 +75,30 @@ const HeroSection = async ({ id }: { id: string }) => {
             title={ratings}
             subtitle={`${new Intl.NumberFormat("en-US", {
               notation: "compact",
-            }).format(voteCount || 0)} Votes`}
+            }).format(voteCount || 0)}`}
             color={"blue"}
           />
+          {seasons ? (
+            <StatCard
+              className="min-w-[80px]"
+              title={`${seasons}`}
+              subtitle={"Seasons"}
+              color={"teal"}
+            />
+          ) : null}
+          {episodes ? (
+            <StatCard
+              className="min-w-[80px]"
+              title={`${episodes}`}
+              subtitle={"Episodes"}
+              color={"yellow"}
+            />
+          ) : null}
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           {genres?.map((genre) => (
             <Badge
-              className={cn(Object.values(FancyColorVariants.purple))}
+              className={cn(Object.values(FancyColorVariants.pink))}
               key={genre}
             >
               {genre}
@@ -94,7 +119,7 @@ const HeroSection = async ({ id }: { id: string }) => {
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

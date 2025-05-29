@@ -23,7 +23,7 @@ type Props = {
 
 const AppCarousel = ({ items, title, imageVarient = "square" }: Props) => {
   return (
-    <>
+    <section>
       {title && <h2 className="text-xl lg:text-2xl font-bold my-5">{title}</h2>}
       <Carousel>
         <CarouselContent className="gap-10  lg:gap-12 xl:gap-18">
@@ -62,6 +62,7 @@ const AppCarousel = ({ items, title, imageVarient = "square" }: Props) => {
                   >
                     {item.image && (
                       <Image
+                        priority
                         src={item.image}
                         alt={item.name}
                         layout="fill"
@@ -71,7 +72,9 @@ const AppCarousel = ({ items, title, imageVarient = "square" }: Props) => {
                   </div>
                   <div>
                     <p>{item.name}</p>
-                    <p className="text-sm text-muted-foreground">{item.subtitle}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.subtitle}
+                    </p>
                   </div>
                 </div>
               </Link>
@@ -79,7 +82,7 @@ const AppCarousel = ({ items, title, imageVarient = "square" }: Props) => {
           ))}
         </CarouselContent>
       </Carousel>
-    </>
+    </section>
   );
 };
 

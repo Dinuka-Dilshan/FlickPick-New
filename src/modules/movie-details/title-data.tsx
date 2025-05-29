@@ -24,10 +24,7 @@ const TitleData = async ({
         {title}
       </h1>
       <p
-        className={cn(
-          "text-white text-xl flex gap-3",
-          variant === "mobile" && "text-sm"
-        )}
+        className={cn(" text-xl flex gap-3", variant === "mobile" && "text-sm")}
       >
         <span>{releaseYear} </span>
         <span className="text-muted-foreground"> | </span>

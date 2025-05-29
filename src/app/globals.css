@@ -5,7 +5,7 @@
 
 @theme inline {
   --color-background: oklch(24% 0% 68deg);
-  --color-foreground: oklch(0.985 0 0);
+  --color-foreground: oklch(90% 0% 68deg);
   --color-card: oklch(28% 0% 68deg);
   --color-card-foreground: oklch(0.985 0 0);
   --color-popover: oklch(0.205 0 0);

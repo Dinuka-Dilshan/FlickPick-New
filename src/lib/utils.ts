@@ -48,4 +48,16 @@ export const FancyColorVariants = {
     text: "text-teal-400",
     icon: "text-teal-400",
   },
+  pink: {
+    bg: "bg-pink-500/20",
+    border: "border-pink-500/40",
+    text: "text-pink-400",
+    icon: "text-pink-400",
+  },
+  gray: {
+    bg: "bg-gray-500/20",
+    border: "border-gray-500/40",
+    text: "text-gray-400",
+    icon: "text-gray-400",
+  },
 };

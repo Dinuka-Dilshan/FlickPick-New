@@ -180,7 +180,8 @@ export const getMovieDetails = cache(async (id: string) => {
     ?.aboveTheFoldData as AboveTheFoldData;
   const mainColumnData = nextDataScriptParsed?.props?.pageProps
     ?.mainColumnData as MainColumnData;
-  console.log(aboveTheFoldData);
+
+  console.log(mainColumnData.episodes)
   return {
     title: aboveTheFoldData?.titleText?.text,
     ratings: aboveTheFoldData?.ratingsSummary?.aggregateRating,

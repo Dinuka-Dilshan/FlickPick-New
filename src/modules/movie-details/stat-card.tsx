@@ -6,7 +6,7 @@ type Props = {
   Icon?: LucideIcon;
   title: ReactNode;
   subtitle: ReactNode;
-  color: "purple" | "blue" | "green" | "red" | "yellow" | "orange";
+  color: keyof typeof FancyColorVariants;
   className?: string;
 };
 
@@ -20,7 +20,7 @@ const StatCard = ({ Icon, title, subtitle, color, className }: Props) => {
   return (
     <div
       className={cn(
-        `p-3 rounded-lg border-2 ${variant.bg} ${variant.border}`,
+        `p-3 flex flex-col justify-center items-center rounded-lg border-2 ${variant.bg} ${variant.border}`,
         className
       )}
     >
