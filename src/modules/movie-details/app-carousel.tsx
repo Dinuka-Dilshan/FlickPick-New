@@ -26,7 +26,7 @@ const AppCarousel = ({ items, title, imageVarient = "square" }: Props) => {
     <section>
       {title && <h2 className="text-xl lg:text-2xl font-bold my-5">{title}</h2>}
       <Carousel>
-        <CarouselContent className="gap-10  lg:gap-12 xl:gap-18">
+        <CarouselContent className="gap-7 lg:gap-12 xl:gap-18">
           {items?.map((item) => (
             <CarouselItem
               key={item.id}
