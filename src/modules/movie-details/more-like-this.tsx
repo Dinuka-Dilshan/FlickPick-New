@@ -6,7 +6,7 @@ const MoreLikeThis = async ({ id }: { id: string }) => {
   return (
     <AppCarousel
       items={moreLikeThis?.map((item) => ({
-        subtitle: item.releaseYear.toString(),
+        subtitle: item.releaseYear?.toString(),
         id: item.imdbId,
         name: `${item.title.slice(0, 20)}
                   ${item.title.length > 20 ? "..." : ""}`,
