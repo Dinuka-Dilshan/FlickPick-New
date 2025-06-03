@@ -9,7 +9,9 @@ const nextConfig: NextConfig = {
     staleTimes: {
       dynamic: 1000 * 60,
     },
+    serverComponentsHmrCache: true,
   },
+  
 };
 
 export default nextConfig;

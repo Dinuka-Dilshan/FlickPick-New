@@ -4,8 +4,7 @@ import HeroSection from "@/modules/movie-details/hero-section";
 import MoreLikeThis from "@/modules/movie-details/more-like-this";
 import Trailer from "@/modules/movie-details/trailer";
 
-
-const Movie = async ({ params }: { params: Promise<{ id: string }> }) => {
+const Tv = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
   return (
@@ -18,4 +17,4 @@ const Movie = async ({ params }: { params: Promise<{ id: string }> }) => {
   );
 };
 
-export default Movie;
+export default Tv;

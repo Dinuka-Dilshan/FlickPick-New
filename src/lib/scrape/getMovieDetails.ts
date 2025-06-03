@@ -164,6 +164,8 @@ type MainColumnData = {
 export const getMovieDetails = cache(async (id: string) => {
   const response = await fetch(`https://www.imdb.com/title/${id}`, {
     headers: MIMIC_HEADERS,
+    next: { revalidate: 3600 },
+    cache: "force-cache",
   });
 
   const responseText = await response.text();
@@ -181,7 +183,6 @@ export const getMovieDetails = cache(async (id: string) => {
   const mainColumnData = nextDataScriptParsed?.props?.pageProps
     ?.mainColumnData as MainColumnData;
 
-  console.log(mainColumnData.episodes)
   return {
     title: aboveTheFoldData?.titleText?.text,
     ratings: aboveTheFoldData?.ratingsSummary?.aggregateRating,

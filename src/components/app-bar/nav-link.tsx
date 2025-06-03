@@ -16,6 +16,7 @@ const NavLink = ({ href, children }: PropsWithChildren<Props>) => {
 
   return (
     <Link
+      prefetch={false}
       href={href}
       className={cn(isActive ? "text-pink-400" : "text-[#B3B3B3]")}
     >

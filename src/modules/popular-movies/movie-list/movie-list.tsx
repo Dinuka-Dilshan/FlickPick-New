@@ -7,7 +7,7 @@ type Props = {
   type: "Movie" | "TV";
 };
 
-const MovieList = ({ movies, title, type }: Props) => {
+const MovieList = async ({ movies, title, type }: Props) => {
   return (
     <>
       <h1 className="text-xl text-[#EFEFEF] font-bold pt-5">{title}</h1>
