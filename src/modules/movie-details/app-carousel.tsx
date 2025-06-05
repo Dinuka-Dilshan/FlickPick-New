@@ -33,6 +33,7 @@ const AppCarousel = ({ items, title, imageVarient = "square" }: Props) => {
               className="basis-1/2 md:basis-1/4 lg:basis-1/6 xl:basis-1/8 2xl:basis-1/10"
             >
               <Link
+                prefetch={false}
                 href={`/${
                   item.variant === "Movie"
                     ? "movies"
