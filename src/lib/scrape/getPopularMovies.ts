@@ -7,6 +7,8 @@ export const getPopularMoviesTvs = cache(
   async (varient: "moviemeter" | "tvmeter") => {
     const response = await fetch(`https://www.imdb.com/chart/${varient}`, {
       headers: MIMIC_HEADERS,
+      next: { revalidate: 60 * 60 },
+      cache: "force-cache",
     });
     const responseText = await response.text();
     const cheerioHtmlTree = load(responseText);
