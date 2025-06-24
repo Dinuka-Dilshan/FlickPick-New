@@ -2,6 +2,7 @@ import AppBar from "@/components/app-bar";
 import Footer from "@/components/footer/footer";
 import type { Metadata } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
 const appFont = Bricolage_Grotesque({
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${appFont.variable} antialiased`}>
+        <NextTopLoader color="#9333ea" showSpinner={false} />
         <AppBar />
         <main className="container mx-auto px-4"> {children}</main>
         <Footer />
