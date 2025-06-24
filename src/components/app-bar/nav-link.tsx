@@ -24,6 +24,7 @@ const NavLink = ({
   return (
     <Link
       onClick={onClick}
+      prefetch={false}
       href={href}
       className={cn(isActive ? "text-pink-400" : "text-[#B3B3B3]", className)}
     >

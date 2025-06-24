@@ -35,6 +35,7 @@ const MovieCard = async ({
 }: Props) => {
   return (
     <Link
+      prefetch={false}
       href={`/${type === "Movie" ? "movies" : "tvs"}/${imdbId}`}
     >
       <Card className="border-0 overflow-hidden relative">

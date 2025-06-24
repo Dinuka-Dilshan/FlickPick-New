@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Logo = () => {
   return (
-    <Link href="/" className="flex justify-center items-center gap-1">
+    <Link prefetch={false} href='/' className="flex justify-center items-center gap-1">
       <Clapperboard
         color="#9333ea"
         size={25}
