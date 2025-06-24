@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ hostname: "m.media-amazon.com" }],
   },
   experimental: {
+    useCache: true,
     staleTimes: {
       dynamic: 1000 * 60,
     },

@@ -1,13 +1,13 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { getMovieDetails } from "@/lib/scrape/getMovieDetails";
+import { Movie } from "@/lib/scrape/getMovieDetails";
 import { cn, FancyColorVariants } from "@/lib/utils";
 import StatCard from "@/modules/movie-details/stat-card";
 import TitleData from "@/modules/movie-details/title-data";
 import { Check, Scroll, Star, TrendingDown, TrendingUp } from "lucide-react";
 import Image from "next/image";
 
-const HeroSection = async ({ id }: { id: string }) => {
+const HeroSection = async ({ movie }: { movie: Movie }) => {
   const {
     title,
     posterUrl,
@@ -18,12 +18,12 @@ const HeroSection = async ({ id }: { id: string }) => {
     voteCount,
     seasons,
     episodes,
-  } = await getMovieDetails(id);
+  } = movie;
 
   return (
     <section className="flex flex-col lg:flex-row  gap-4 lg:gap-8 ">
       <div className="flex flex-col lg:hidden">
-        <TitleData id={id} variant="mobile" />
+        <TitleData movie={movie} variant="mobile" />
       </div>
       {posterUrl ? (
         <div className="relative w-full lg:w-fit lg:h-[500] aspect-[2/3] rounded-xl self-start ">
@@ -37,7 +37,11 @@ const HeroSection = async ({ id }: { id: string }) => {
         </div>
       ) : null}
       <div className="flex flex-col gap-4">
-        <TitleData id={id} variant={"desktop"} className="hidden lg:block" />
+        <TitleData
+          movie={movie}
+          variant={"desktop"}
+          className="hidden lg:block"
+        />
         <div className="flex gap-2 ">
           <StatCard
             title={`#${meterRanking.currentRank}`}

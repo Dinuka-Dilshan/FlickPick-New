@@ -1,7 +1,7 @@
-import { getMovieDetails } from "@/lib/scrape/getMovieDetails";
+import { Movie } from "@/lib/scrape/getMovieDetails";
 
-const Trailer = async ({ id }: { id: string }) => {
-  const { videoUrls } = await getMovieDetails(id);
+const Trailer = async ({ movie }: { movie: Movie }) => {
+  const { videoUrls } = movie;
 
   if (!videoUrls?.[0]?.url) {
     return null;

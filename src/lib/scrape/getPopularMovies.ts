@@ -5,10 +5,9 @@ import { cache } from "react";
 
 export const getPopularMoviesTvs = cache(
   async (varient: "moviemeter" | "tvmeter") => {
+    "use cache";
     const response = await fetch(`https://www.imdb.com/chart/${varient}`, {
       headers: MIMIC_HEADERS,
-      next: { revalidate: 60 * 60 },
-      cache: "force-cache",
     });
     const responseText = await response.text();
     const cheerioHtmlTree = load(responseText);
@@ -50,7 +49,7 @@ export const getPopularMoviesTvs = cache(
           imdbId: node?.id,
           title: node?.titleText?.text,
           releaseYear: node?.releaseYear?.year,
-          posterUrl: getImageURL(node?.primaryImage?.url ?? ""),
+          posterUrl: getImageURL(node?.primaryImage?.url ?? "", 300),
           rank: node?.meterRanking?.currentRank,
           rating: node?.ratingsSummary?.aggregateRating,
           voteCount: Intl.NumberFormat("en", {

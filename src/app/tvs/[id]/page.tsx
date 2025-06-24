@@ -19,14 +19,16 @@ export const generateMetadata = async ({
 };
 
 const Tv = async ({ params }: { params: Promise<{ id: string }> }) => {
+  "use cache";
   const { id } = await params;
+  const movie = await getMovieDetails(id);
 
   return (
     <DetailsWrapper>
-      <HeroSection id={id} />
-      <Cast id={id} />
-      <Trailer id={id} />
-      <MoreLikeThis id={id} />
+      <HeroSection movie={movie} />
+      <Cast movie={movie} />
+      <Trailer movie={movie} />
+      <MoreLikeThis movie={movie} />
     </DetailsWrapper>
   );
 };

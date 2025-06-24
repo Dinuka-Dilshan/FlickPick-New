@@ -1,8 +1,8 @@
-import { getMovieDetails } from "@/lib/scrape/getMovieDetails";
+import { Movie } from "@/lib/scrape/getMovieDetails";
 import AppCarousel from "@/modules/movie-details/app-carousel";
 
-const Cast = async ({ id }: { id: string }) => {
-  const { cast } = await getMovieDetails(id);
+const Cast = async ({ movie }: { movie: Movie }) => {
+  const { cast } = movie;
   return (
     <AppCarousel
       items={cast?.map((member) => ({

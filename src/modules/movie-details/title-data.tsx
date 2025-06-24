@@ -1,17 +1,16 @@
-import { getMovieDetails } from "@/lib/scrape/getMovieDetails";
+import { Movie } from "@/lib/scrape/getMovieDetails";
 import { cn } from "@/lib/utils";
 
 const TitleData = async ({
-  id,
+  movie,
   variant,
   className,
 }: {
-  id: string;
+  movie: Movie;
   variant: "mobile" | "desktop";
   className?: string;
 }) => {
-  const { title, releaseYear, titleType, runtime, certificate } =
-    await getMovieDetails(id);
+  const { title, releaseYear, titleType, runtime, certificate } = movie;
 
   return (
     <div className={className}>

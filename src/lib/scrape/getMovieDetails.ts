@@ -161,11 +161,12 @@ type MainColumnData = {
   };
 };
 
+export type Movie = Awaited<ReturnType<typeof getMovieDetails>>;
+
 export const getMovieDetails = cache(async (id: string) => {
+  "use cache";
   const response = await fetch(`https://www.imdb.com/title/${id}`, {
     headers: MIMIC_HEADERS,
-    next: { revalidate: 3600 },
-    cache: "force-cache",
   });
 
   const responseText = await response.text();
@@ -191,7 +192,7 @@ export const getMovieDetails = cache(async (id: string) => {
     certificate: aboveTheFoldData?.certificate?.rating,
     runtime: aboveTheFoldData?.runtime?.displayableProperty?.value?.plainText,
     runtimeSeconds: aboveTheFoldData?.runtime?.seconds,
-    posterUrl: aboveTheFoldData?.primaryImage?.url,
+    posterUrl: getImageURL(aboveTheFoldData?.primaryImage?.url || ""),
     videoUrls: aboveTheFoldData?.primaryVideos?.edges?.map((edge) => ({
       url: edge?.node?.playbackURLs?.[0]?.url,
       thumbnail: edge?.node?.thumbnail?.url || "",
